@@ -1,21 +1,28 @@
 ---
 company: Maser Informática
-role: Mobile Developer
+role: Mobile Developer (Android)
 period:
-  from: '2021-08'
-  to: '2022-08'
-location: Villa María, Córdoba, Argentina
+  from: "2021-08"
+  to: "2022-08"
+location: Villa María, Córdoba
 remote: false
-summary: Native Android apps in .NET and internal systems maintenance.
+summary: "Native Android app development in Java and Kotlin for retail and services clients."
+highlights:
+  - "Native Android apps in Java (legacy) and Kotlin (new projects), MVVM architecture."
+  - "REST API integration, local caching with Room, and periodic sync via WorkManager."
+  - "Google Play publishing and post-launch maintenance."
+  - "Client-facing technical support and requirements gathering in Spanish."
 stack:
-  - .NET
-  - Android
-  - Xamarin
+  - "Android"
+  - "Java"
+  - "Kotlin"
+  - "Room"
+  - "Retrofit"
+  - "MVVM"
 order: 4
 locale: en
 ---
 
-- Native Android apps in .NET tailored to each client's requirements.
-- Maintenance of existing .NET applications and improvements to internal corporate systems.
-- First step into the mobile world, focused on solving real problems for local users.
+My first full-time job: mobile apps for retail and services clients in Villa María. Here I learned the full app lifecycle — gather requirements with the client, design the UI, integrate with their backend, publish to the Play Store, and provide post-launch support. The foundation of everything that came after.
+
 ---

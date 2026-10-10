@@ -3,22 +3,22 @@ category: Cloud/DevOps
 order: 5
 locale: en
 items:
-  - name: Azure App Services
+  - name: "Azure (App Service, Functions, Service Bus)"
+    level: advanced
+    years: 3
+  - name: "AWS (S3, SQS, Textract)"
     level: advanced
     years: 2
-  - name: Azure Cosmos DB
+  - name: "Docker"
     level: advanced
+    years: 2
+  - name: "GitHub Actions"
+    level: advanced
+    years: 3
+  - name: "Vercel"
+    level: familiar
     years: 1
-  - name: Azure Key Vault
-    level: advanced
-    years: 1
-  - name: Git
-    level: expert
-    years: 5
-  - name: Jira
-    level: advanced
-    years: 4
-  - name: Scrum
-    level: advanced
-    years: 5
+  - name: "IIS"
+    level: familiar
+    years: 2
 ---

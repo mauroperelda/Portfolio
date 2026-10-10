@@ -1,13 +1,9 @@
-/**
- * Supported languages metadata.
- * Add a new locale here and update astro.config.mjs `i18n.locales` accordingly.
- */
-
 export type Lang = 'es' | 'en';
 
 export interface Language {
   code: Lang;
   label: string;
+  short: string;
   htmlLang: string;
   ogLocale: string;
   dir: 'ltr' | 'rtl';
@@ -18,6 +14,7 @@ export const LANGUAGES: ReadonlyArray<Language> = [
   {
     code: 'es',
     label: 'Español',
+    short: 'ES',
     htmlLang: 'es-AR',
     ogLocale: 'es_AR',
     dir: 'ltr',
@@ -26,6 +23,7 @@ export const LANGUAGES: ReadonlyArray<Language> = [
   {
     code: 'en',
     label: 'English',
+    short: 'EN',
     htmlLang: 'en-US',
     ogLocale: 'en_US',
     dir: 'ltr',

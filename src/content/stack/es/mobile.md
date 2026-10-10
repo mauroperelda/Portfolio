@@ -3,16 +3,25 @@ category: Mobile
 order: 3
 locale: es
 items:
-  - name: .NET MAUI
+  - name: ".NET MAUI"
+    level: advanced
+    years: 1
+  - name: "Android (Java)"
+    level: advanced
+    years: 1
+  - name: "Android (Kotlin)"
+    level: advanced
+    years: 1
+  - name: "MVVM"
     level: advanced
     years: 2
-  - name: Xamarin Forms
+  - name: "Room"
     level: advanced
-    years: 2
-  - name: Android nativo
+    years: 1
+  - name: "WorkManager"
     level: familiar
     years: 1
-  - name: MDM
+  - name: "Retrofit"
     level: familiar
     years: 1
 ---

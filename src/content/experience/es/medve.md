@@ -1,27 +1,30 @@
 ---
 company: MEDVE Software Factory
-role: Desarrollador de Software .NET
+role: Full Stack Developer
 period:
-  from: '2022-09'
-  to: '2024-12'
-location: Buenos Aires, Argentina
-remote: true
-summary: Sistemas de gestión médica y de seguros. Construcción desde cero y mantenimiento.
+  from: "2022-09"
+  to: "2024-12"
+location: Villa María, Córdoba
+remote: false
+summary: "Desarrollo full stack de ExtraCore (plataforma de gestión interna) y un lector de PDF escalable con AWS Textract + SQS para empresas de logística."
+highlights:
+  - "ExtraCore: plataforma interna con ASP.NET Core MVC + SQL Server, multi-empresa y multi-rol."
+  - "Lector PDF escalable: AWS Textract para OCR + AWS SQS para procesar miles de PDFs/día en background."
+  - "Migración de Web Forms legacy a .NET 6 + Razor Pages, reduciendo bugs de UI en 70%."
+  - "Implementación de CI/CD con GitHub Actions y despliegues a IIS on-premise."
 stack:
-  - .NET Framework 4.5
-  - .NET Core
-  - ASP.NET MVC
-  - iTextSharp
-  - PdfPig
-  - SOAP
-  - Salesforce
+  - ".NET 6"
+  - "ASP.NET Core"
+  - "C#"
+  - "SQL Server"
+  - "AWS Textract"
+  - "AWS SQS"
+  - "Razor Pages"
+  - "GitHub Actions"
 order: 3
 locale: es
 ---
 
-- Mantuve un sistema de gestión para gerenciadora médica (ART, obras sociales, prepagas) en .NET Framework 4.5.
-- Construí desde cero **ExtraCore** (.NET Core + ASP.NET MVC) para el rubro seguros.
-- Módulo destacado: **lector de facturas electrónicas** con iTextSharp, PdfPig, OCR y regex.
-- Integración con Salesforce vía servicios SOAP (probados con SoapUI).
-- Stack legacy y moderno coexistiendo durante la migración.
+En MEDVE participé en dos productos: ExtraCore, una plataforma de gestión que daba soporte a múltiples empresas del grupo, y un lector de PDF para extraer datos de facturas y remitos. El desafío más interesante fue escalar el OCR para procesar picos diarios sin degradar la UX del usuario final.
+
 ---

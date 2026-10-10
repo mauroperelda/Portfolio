@@ -3,16 +3,19 @@ category: Docs
 order: 8
 locale: es
 items:
-  - name: iTextSharp
+  - name: "Swagger / OpenAPI"
     level: advanced
-    years: 2
-  - name: PdfPig
+    years: 3
+  - name: "xUnit"
     level: advanced
-    years: 2
-  - name: OCR
-    level: familiar
-    years: 1
-  - name: Regex
+    years: 3
+  - name: "Markdown"
+    level: expert
+    years: 5
+  - name: "Git"
+    level: expert
+    years: 5
+  - name: "GitHub Projects"
     level: advanced
-    years: 4
+    years: 3
 ---

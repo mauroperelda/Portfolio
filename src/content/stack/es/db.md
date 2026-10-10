@@ -3,19 +3,22 @@ category: DB
 order: 4
 locale: es
 items:
-  - name: SQL Server
+  - name: "SQL Server"
     level: expert
     years: 5
-  - name: Azure Cosmos DB
+  - name: "Cosmos DB"
     level: advanced
     years: 1
-  - name: Multitenant
-    level: advanced
+  - name: "PostgreSQL"
+    level: familiar
     years: 1
-  - name: Stored procedures
-    level: advanced
+  - name: "Redis"
+    level: familiar
+    years: 1
+  - name: "EF Core migrations"
+    level: expert
     years: 4
-  - name: Query optimization
-    level: advanced
-    years: 4
+  - name: "Dapper"
+    level: familiar
+    years: 1
 ---

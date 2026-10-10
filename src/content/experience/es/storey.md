@@ -1,25 +1,29 @@
 ---
 company: Storey S.A.
-role: Desarrollador de Software
+role: Full Stack Developer
 period:
-  from: '2024-12'
-  to: '2025-10'
+  from: "2024-12"
+  to: "2025-10"
 location: Buenos Aires, Argentina
 remote: true
-summary: App móvil Android de lectura de medidores con sync online/offline.
+summary: "Desarrollo full stack de Omega Lecturista Digital: app móvil .NET MAUI para lecturas de medidores + backend de sincronización en .NET 8 con SQL Server."
+highlights:
+  - "App .NET MAUI (iOS + Android) con sincronización offline-first y resolución de conflictos."
+  - "Backend .NET 8 con Clean Architecture, EF Core 8, JWT auth y Azure Service Bus para colas de integración."
+  - "Integración con APIs de AFIP (facturación electrónica) y sistemas legacy de la empresa distribuidora."
+  - "Mentoring a 2 developers junior y code reviews semanales."
 stack:
-  - .NET MAUI
-  - Xamarin Forms
-  - Android
-  - HTML
-  - CSS
-  - JS
+  - ".NET 8"
+  - ".NET MAUI"
+  - "C#"
+  - "EF Core"
+  - "SQL Server"
+  - "Azure Service Bus"
+  - "JWT"
 order: 2
 locale: es
 ---
 
-- Mantuve y evolucioné **Omega Lecturista Digital**, app móvil Android con .NET MAUI / Xamarin Forms.
-- Lectura automática con sondas ópticas, sincronización online/offline, ~50 usuarios concurrentes.
-- Web admin para rutas y lecturas, HTML/CSS/JS consumiendo APIs y procesando grandes volúmenes JSON.
-- Distribución MDM y troubleshooting en campo con usuarios reales.
+Omega Lecturista Digital reemplazó el proceso manual de toma de lecturas de medidores con una app móvil offline-first y un backend que sincroniza contra los sistemas de la distribuidora. El proyecto tocó todos los puntos: modelado de datos, UX móvil, performance de sincronización y compliance con AFIP.
+
 ---

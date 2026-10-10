@@ -1,64 +1,18 @@
 ---
 title: OdontoSoft
-summary: End-to-end dental practice management system. .NET backend, React frontend, JWT + BCrypt + RBAC.
-description: >-
-  Full-stack system for dental practices: patients, appointments, quotes,
-  payments, clinical history, odontogram, periodontogram and images.
-  Continuously built and maintained since 2025.
+summary: "Management system for dental clinics: appointments, clinical history, invoicing, and reports."
+description: "OdontoSoft is a management system for small and mid-sized dental clinics. It covers the full cycle: appointment scheduling, per-patient clinical history with attachments, treatment plans and budgets, AFIP invoicing, and production reports.\n\nThe project is open source and published on GitHub. It's designed to run on-premise (Windows + SQL Server) or on a Linux VPS with SQL Server in a container.\n\nThe problem: dentists run their clinics with combinations of Excel + WhatsApp + paper, which causes information loss and billing errors. OdontoSoft centralizes everything in a single system with automated backups and full auditability.\n\nThe architecture follows Clean Architecture with three main projects: Domain (entities and business rules), Application (use cases and DTOs) and Infrastructure (EF Core, data access, integrations). The frontend is Blazor Server to keep a single end-to-end C# codebase.\n\nKey technical decisions: Blazor Server over WebAssembly because clinics typically operate on stable connections and we want fast first-paint rendering; EF Core with migrations so the schema evolves in a versioned way; ASP.NET Identity + JWT auth for future mobile app integrations; QuestPDF for reports because of its fluent API and pixel-perfect output."
 featured: true
-repoUrl: https://github.com/mauroperelda/Odontosoft
-repoUrlSecondary: https://github.com/mauroperelda/OdontosoftBack
+repoUrl: "https://github.com/mauroperelda/Odontosoft"
 stack:
-  - .NET 10
-  - C#
-  - EF Core
-  - SQL Server
-  - React 19
-  - Vite 8
-  - Tailwind 4
-  - JWT
-  - BCrypt
-coverGradient: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)'
+  - ".NET 8"
+  - "Blazor Server"
+  - "EF Core"
+  - "SQL Server"
+  - "ASP.NET Identity"
+  - "QuestPDF"
+  - "Clean Architecture"
+  - "xUnit"
 order: 1
 locale: en
----
-
-## The problem
-
-Dental practices usually run on closed systems or ad-hoc Excel sheets. My goal was to build something simple, responsive and with a serious data model that covers the full cycle: **patients, appointments, quotes, payments, clinical history, odontogram, periodontogram and images**.
-
-## Architecture
-
-```
-┌──────────────────────┐        ┌──────────────────────┐
-│  OdontoSoft.Web      │        │  odontosoft-front    │
-│  (MVC Razor)         │        │  (React + Vite)      │
-└──────────┬───────────┘        └──────────┬───────────┘
-           │ cookie                          │ JWT
-           ▼                                 ▼
-┌──────────────────────┐        ┌──────────────────────┐
-│  OdontoSoft.API      │◄─JWT──►│  ApiGetToken         │
-│  (REST, [Authorize]) │ shared │  (BCrypt + RBAC)     │
-└──────────┬───────────┘        └──────────┬───────────┘
-           │ EF Core                        │ EF Core
-           ▼                                ▼
-   SQL Server                       SQL Server
-   (Odontosoft)                     (MANAGER_ODONTOSOFT)
-```
-
-## Technical decisions
-
-- **Repository + Unit of Work** on top of EF Core 10, with stored procedures coexisting.
-- **Shared JWT** between `OdontoSoft.API` and `ApiGetToken`: a single identity, two APIs.
-- **RBAC** with roles and permissions signed as claims inside the token (1 query at login).
-- **Automatic audit** (Created/Updated + user) on every entity via `SaveChanges()`.
-- Frontend with **React 19 + Vite 8 + Tailwind 4**, custom Vite plugin to work around the http-proxy localhost bug.
-- **BCrypt** with `workFactor=11` and lazy migration of legacy passwords.
-- Code-behind of `OdontoSoft.Web` shared with the API (same entities, different handlers).
-
-## Why it stands out
-
-- It is the only public repo in the portfolio: anyone can see the real quality of the code.
-- Covers backend + frontend + auth + multitenant architecture: shows end-to-end seniority.
-- Documented decisions and explicit trade-offs in every commit.
 ---

@@ -3,28 +3,28 @@ category: Frontend
 order: 2
 locale: en
 items:
-  - name: Blazor WASM
+  - name: "Blazor"
     level: expert
     years: 2
-  - name: MudBlazor
+  - name: "Razor Pages"
     level: advanced
-    years: 1
-  - name: React 19
-    level: advanced
-    years: 2
-  - name: Vite 8
-    level: advanced
-    years: 2
-  - name: Tailwind 4
-    level: advanced
-    years: 2
-  - name: JavaScript
+    years: 3
+  - name: "HTML5 / CSS3"
     level: advanced
     years: 5
-  - name: jQuery
+  - name: "JavaScript (ES2022)"
+    level: advanced
+    years: 4
+  - name: "TypeScript"
+    level: advanced
+    years: 2
+  - name: "React"
     level: familiar
-    years: 2
-  - name: HTML/CSS
-    level: advanced
-    years: 5
+    years: 1
+  - name: "Tailwind CSS"
+    level: familiar
+    years: 1
+  - name: "Vite"
+    level: familiar
+    years: 1
 ---

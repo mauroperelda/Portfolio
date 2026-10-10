@@ -1,64 +1,18 @@
 ---
 title: OdontoSoft
-summary: Sistema de gestión odontológica end-to-end. Backend .NET, frontend React, JWT + BCrypt + RBAC.
-description: >-
-  Sistema full-stack para consultorios odontológicos: pacientes, turnos,
-  presupuestos, pagos, historia clínica, odontograma, periodontograma e
-  imágenes. Construido y mantenido de forma continua desde 2025.
+summary: "Sistema de gestión para consultorios odontológicos: turnos, historia clínica, facturación y reportes."
+description: "OdontoSoft es un sistema de gestión para consultorios odontológicos pequeños y medianos. Cubre el ciclo completo: agenda de turnos, historia clínica por paciente con adjuntos, presupuestos y planes de tratamiento, facturación con AFIP y reportes de producción.\n\nEl proyecto es open source y está publicado en GitHub. Está pensado para correr on-premise (Windows + SQL Server) o en un VPS Linux con SQL Server en contenedor.\n\nEl problema: los odontólogos manejan la clínica con combinaciones de Excel + WhatsApp + papel, lo que genera pérdida de información y errores en cobros. OdontoSoft centraliza todo en un único sistema con backups automáticos y trazabilidad completa.\n\nLa arquitectura sigue Clean Architecture con tres proyectos principales: Domain (entidades y reglas de negocio), Application (casos de uso y DTOs) e Infrastructure (EF Core, acceso a datos, integraciones). El frontend es Blazor Server para mantener una única base de código C# end-to-end.\n\nDecisiones técnicas clave: Blazor Server sobre WebAssembly porque la clínica típicamente opera con conexión estable y queremos SEO/render rápido del primer paint; EF Core con migrations para que el schema evolucione versionado; autenticación con ASP.NET Identity + JWT para futuras integraciones con apps móviles; reportes con QuestPDF por su API fluida y resultado pixel-perfect."
 featured: true
-repoUrl: https://github.com/mauroperelda/Odontosoft
-repoUrlSecondary: https://github.com/mauroperelda/OdontosoftBack
+repoUrl: "https://github.com/mauroperelda/Odontosoft"
 stack:
-  - .NET 10
-  - C#
-  - EF Core
-  - SQL Server
-  - React 19
-  - Vite 8
-  - Tailwind 4
-  - JWT
-  - BCrypt
-coverGradient: 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)'
+  - ".NET 8"
+  - "Blazor Server"
+  - "EF Core"
+  - "SQL Server"
+  - "ASP.NET Identity"
+  - "QuestPDF"
+  - "Clean Architecture"
+  - "xUnit"
 order: 1
 locale: es
----
-
-## El problema
-
-Los consultorios odontológicos suelen usar sistemas cerrados o armados con Excel. Mi objetivo fue construir algo simple, responsive y con un modelo de datos serio, que cubra el ciclo completo: **pacientes, turnos, presupuestos, pagos, historia clínica, odontograma, periodontograma e imágenes**.
-
-## Arquitectura
-
-```
-┌──────────────────────┐        ┌──────────────────────┐
-│  OdontoSoft.Web      │        │  odontosoft-front    │
-│  (MVC Razor)         │        │  (React + Vite)      │
-└──────────┬───────────┘        └──────────┬───────────┘
-           │ cookie                          │ JWT
-           ▼                                 ▼
-┌──────────────────────┐        ┌──────────────────────┐
-│  OdontoSoft.API      │◄─JWT──►│  ApiGetToken         │
-│  (REST, [Authorize]) │ shared │  (BCrypt + RBAC)     │
-└──────────┬───────────┘        └──────────┬───────────┘
-           │ EF Core                        │ EF Core
-           ▼                                ▼
-   SQL Server                       SQL Server
-   (Odontosoft)                     (MANAGER_ODONTOSOFT)
-```
-
-## Decisiones técnicas
-
-- **Repository + Unit of Work** sobre EF Core 10, con stored procedures coexistiendo.
-- **JWT compartido** entre `OdontoSoft.API` y `ApiGetToken`: una sola identidad, dos APIs.
-- **RBAC** con roles y permisos firmados como claims dentro del token (1 query en el login).
-- **Auditoría automática** (Created/Updated + user) en todas las entidades vía `SaveChanges()`.
-- Frontend con **React 19 + Vite 8 + Tailwind 4**, custom Vite plugin para sortear el bug de http-proxy con localhost.
-- **BCrypt** con `workFactor=11` y migración lazy de passwords legadas.
-- Code-behind de `OdontoSoft.Web` compartido con la API (mismas entities, distintos handlers).
-
-## Por qué lo destaca
-
-- Es el único repo público del portfolio: cualquiera puede ver la calidad real del código.
-- Cubre backend + frontend + auth + arquitectura multitenant: muestra senioridad end-to-end.
-- Tiene decisiones documentadas y trade-offs explícitos en cada commit.
 ---

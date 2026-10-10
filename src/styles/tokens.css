@@ -1,11 +1,5 @@
-/*
- * Design tokens — dark default, light override via [data-theme="light"] on <html>.
- * Mirrors the approved mockup palette.
- */
-
 :root,
 :root[data-theme='dark'] {
-  /* Surfaces */
   --color-bg: #16171d;
   --color-bg-elev: #1f2028;
   --color-bg-hover: #2e303a;
@@ -13,7 +7,6 @@
   --color-sidebar-hover: rgba(255, 255, 255, 0.05);
   --color-sidebar-active: rgba(255, 255, 255, 0.08);
 
-  /* Text */
   --color-fg: #e5e7eb;
   --color-fg-muted: #94a3b8;
   --color-fg-dim: #64748b;
@@ -21,17 +14,14 @@
   --color-sidebar-fg-active: #ffffff;
   --color-sidebar-section: #6b7280;
 
-  /* Borders */
   --color-border: #2e303a;
   --color-border-light: rgba(255, 255, 255, 0.08);
 
-  /* Accent */
   --color-accent: #818cf8;
   --color-accent-strong: #4f46e5;
   --color-accent-soft: rgba(99, 102, 241, 0.1);
   --color-accent-border: rgba(99, 102, 241, 0.25);
 
-  /* Code */
   --color-code-bg: #0d0e13;
   --color-code-fg: #e5e7eb;
 }

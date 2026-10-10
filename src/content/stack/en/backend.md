@@ -3,31 +3,28 @@ category: Backend
 order: 1
 locale: en
 items:
-  - name: C#
+  - name: "C#"
     level: expert
     years: 5
-  - name: .NET 9/10
+  - name: ".NET 8 / .NET 6"
     level: expert
     years: 5
-  - name: .NET Framework
+  - name: "ASP.NET Core"
+    level: expert
+    years: 5
+  - name: "EF Core"
+    level: expert
+    years: 4
+  - name: "Blazor Server / WASM"
     level: advanced
-    years: 3
-  - name: ASP.NET Core
-    level: expert
-    years: 4
-  - name: ASP.NET MVC
-    level: expert
-    years: 4
-  - name: EF Core
-    level: expert
-    years: 4
-  - name: LINQ
-    level: expert
-    years: 5
-  - name: Swagger
+    years: 2
+  - name: ".NET MAUI"
     level: advanced
-    years: 4
-  - name: REST Web API
-    level: expert
-    years: 5
+    years: 1
+  - name: "Node.js"
+    level: familiar
+    years: 1
+  - name: "Python"
+    level: familiar
+    years: 1
 ---

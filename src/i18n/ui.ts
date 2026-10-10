@@ -1,180 +1,172 @@
-/**
- * UI strings indexed by locale.
- * Use this for navigation, buttons, labels — anything that is NOT long-form
- * content (which lives in src/content/<collection>/<locale>/*.md).
- */
-
 import type { Lang } from './languages';
 
 export const ui = {
   es: {
-    // Sidebar
-    'nav.section.navigate': 'Navegación',
-    'nav.section.connect': 'Conectar',
-    'nav.home': 'Home',
-    'nav.experience': 'Experience',
-    'nav.projects': 'Projects',
+    // nav (sidebar)
+    'nav.home': 'Inicio',
+    'nav.experience': 'Experiencia',
+    'nav.projects': 'Proyectos',
     'nav.stack': 'Stack',
-    'nav.contact': 'Contact',
+    'nav.contact': 'Contacto',
 
-    // Topbar
-    'topbar.contact.cta': 'Contacto',
+    // topbar
     'topbar.theme.toggle': 'Cambiar tema',
     'topbar.lang.toggle': 'Cambiar idioma',
     'topbar.menu': 'Menú',
-    'topbar.close': 'Cerrar menú',
 
-    // Home
+    // home
+    'home.title': 'Mauro Perelda — Full Stack .NET Developer',
+    'home.description':
+      'Portfolio de Mauro Perelda, Full Stack .NET Developer con 5 años de experiencia en backend, mobile, Blazor y cloud.',
+    'home.role': 'Full Stack .NET Developer',
     'home.location': 'Villa María, Córdoba, Argentina',
-    'home.hero.text':
-      'Construyo sistemas .NET que escalan en producción: POS multitenant, e-invoicing, mobile a escala y RBAC con JWT. 5 años de experiencia end-to-end.',
+    'home.tagline':
+      'Construyo sistemas .NET que escalan en producción: POS multitenant, e-invoicing, mobile a escala y RBAC con JWT.',
+    'home.hero.available': 'Disponible para nuevos proyectos',
     'home.cta.projects': 'Ver proyectos',
     'home.cta.contact': 'Contacto',
-    'home.label.mainStack': 'Stack principal',
-    'home.stat.years.label': 'Años de experiencia',
-    'home.stat.years.sub': '.NET ecosystem',
-    'home.stat.companies.label': 'Empresas',
-    'home.stat.companies.sub': 'Smartfran · Storey · MEDVE · Maser',
-    'home.stat.projects.label': 'Proyectos públicos',
-    'home.stat.projects.sub': '+ 3 case studies anonimizados',
+    'home.stats.years': 'Años de experiencia',
+    'home.stats.yearsSub': '.NET ecosystem',
+    'home.stats.companies': 'Empresas',
+    'home.stats.companiesSub': 'Smartfran · Storey · MEDVE · Maser',
+    'home.stats.projects': 'Proyectos',
+    'home.stats.projectsSub': '4 publicados',
+    'home.stats.stack': 'Tecnologías',
+    'home.stats.stackSub': 'en producción',
+    'home.experienceTitle': 'Experiencia reciente',
+    'home.experienceSubtitle': 'Una muestra de los últimos 5 años.',
+    'home.experienceAll': 'Ver toda la experiencia →',
+    'home.featuredTitle': 'Proyecto destacado',
+    'home.featuredSubtitle': 'El caso más completo del portfolio.',
 
-    // Experience
+    // experience
     'experience.title': 'Experiencia',
-    'experience.subtitle': '5 años construyendo productos .NET en equipos remotos bajo Scrum.',
-    'experience.mode.remote': 'Remoto',
-    'experience.mode.onsite': 'Presencial',
+    'experience.subtitle':
+      '5 años construyendo productos .NET en equipos remotos bajo Scrum.',
+    'experience.description':
+      'Línea de tiempo completa de experiencia profesional: roles, empresas, stacks y logros clave.',
+    'experience.current': 'Presente',
+    'experience.remote': 'Remoto',
+    'experience.onsite': 'Presencial',
 
-    // Projects
+    // projects
     'projects.title': 'Proyectos',
     'projects.subtitle':
       '4 proyectos que muestran el alcance real: backend .NET, mobile, Blazor, integraciones.',
-    'projects.viewCase': 'Ver caso',
-    'projects.featured': 'Destacado',
-    'projects.repo': 'Ver repo',
-    'projects.backend': 'Ver backend',
+    'projects.description':
+      'Portfolio de proyectos: OdontoSoft, POS Multitenant, Omega Lecturista Digital, ExtraCore.',
+    'projects.viewDetail': 'Ver detalle',
+    'projects.code': 'Ver código',
     'projects.live': 'Ver sitio',
+    'projects.featured': 'Destacado',
 
-    // Project detail
-    'project.problem': 'El problema',
-    'project.architecture': 'Arquitectura',
-    'project.decisions': 'Decisiones técnicas',
-    'project.back': '← Volver a proyectos',
-
-    // Stack
+    // stack
     'stack.title': 'Stack',
     'stack.subtitle': 'Tecnologías que uso en producción, organizadas por capa.',
-    'stack.level.expert': 'Experto',
-    'stack.level.advanced': 'Avanzado',
-    'stack.level.familiar': 'Familiar',
+    'stack.description':
+      'Stack técnico: backend, frontend, mobile, bases de datos, cloud, seguridad, APIs y herramientas.',
 
-    // Contact
+    // contact
     'contact.title': 'Contacto',
-    'contact.subtitle': '¿Te interesa trabajar conmigo o tenés una propuesta? Escribime.',
-    'contact.name': 'Nombre',
+    'contact.subtitle':
+      '¿Te interesa trabajar conmigo o tenés una propuesta? Escribime.',
+    'contact.description':
+      'Contactá a Mauro Perelda para propuestas de trabajo, colaboración o consultas técnicas.',
+    'contact.cardTitle': 'Hablemos',
+    'contact.cardDescription':
+      'La forma más directa es por email — respondo dentro de 1-2 días hábiles.',
+    'contact.emailCta': 'Enviar email',
+    'contact.location': 'Villa María, Córdoba, Argentina',
+    'contact.social': 'Conectar',
     'contact.email': 'Email',
-    'contact.message': 'Mensaje',
-    'contact.placeholder.name': 'Tu nombre',
-    'contact.placeholder.email': 'tu@email.com',
-    'contact.placeholder.message': 'Contame en qué puedo ayudar...',
-    'contact.submit': 'Enviar mensaje',
-    'contact.section.email': 'Email',
-    'contact.section.linkedin': 'LinkedIn',
-    'contact.section.github': 'GitHub',
-    'contact.note':
-      'La forma más directa es por email — respondé dentro de 1-2 días hábiles.',
 
-    // Footer
-    'footer.built': 'Hecho con Astro + Tailwind 4.',
+    // footer
+    'footer.built': 'Hecho con Vite + React + Tailwind 4.',
     'footer.rights': 'Todos los derechos reservados.',
 
-    // Breadcrumbs
-    'bc.projects': 'projects',
-    'bc.odontosoft': 'odontosoft',
-
     // 404
-    'notfound.title': 'Página no encontrada',
-    'notfound.text': 'La página que buscás no existe o fue movida.',
-    'notfound.back': 'Volver al inicio',
+    'notFound.title': 'Página no encontrada',
+    'notFound.description': 'La página que buscás no existe o fue movida.',
+    'notFound.cta': 'Volver al inicio',
   },
 
   en: {
-    'nav.section.navigate': 'Navigate',
-    'nav.section.connect': 'Connect',
     'nav.home': 'Home',
     'nav.experience': 'Experience',
     'nav.projects': 'Projects',
     'nav.stack': 'Stack',
     'nav.contact': 'Contact',
 
-    'topbar.contact.cta': 'Contact',
     'topbar.theme.toggle': 'Toggle theme',
     'topbar.lang.toggle': 'Switch language',
     'topbar.menu': 'Menu',
-    'topbar.close': 'Close menu',
 
+    'home.title': 'Mauro Perelda — Full Stack .NET Developer',
+    'home.description':
+      'Portfolio of Mauro Perelda, Full Stack .NET Developer with 5 years of experience in backend, mobile, Blazor and cloud.',
+    'home.role': 'Full Stack .NET Developer',
     'home.location': 'Villa María, Córdoba, Argentina',
-    'home.hero.text':
-      'I build .NET systems that scale in production: multitenant POS, e-invoicing, mobile at scale and JWT-based RBAC. 5 years of end-to-end experience.',
+    'home.tagline':
+      'I build .NET systems that scale in production: multitenant POS, e-invoicing, mobile at scale and JWT-based RBAC.',
+    'home.hero.available': 'Available for new projects',
     'home.cta.projects': 'See projects',
     'home.cta.contact': 'Contact',
-    'home.label.mainStack': 'Main stack',
-    'home.stat.years.label': 'Years of experience',
-    'home.stat.years.sub': '.NET ecosystem',
-    'home.stat.companies.label': 'Companies',
-    'home.stat.companies.sub': 'Smartfran · Storey · MEDVE · Maser',
-    'home.stat.projects.label': 'Public projects',
-    'home.stat.projects.sub': '+ 3 anonymized case studies',
+    'home.stats.years': 'Years of experience',
+    'home.stats.yearsSub': '.NET ecosystem',
+    'home.stats.companies': 'Companies',
+    'home.stats.companiesSub': 'Smartfran · Storey · MEDVE · Maser',
+    'home.stats.projects': 'Projects',
+    'home.stats.projectsSub': '4 published',
+    'home.stats.stack': 'Technologies',
+    'home.stats.stackSub': 'in production',
+    'home.experienceTitle': 'Recent experience',
+    'home.experienceSubtitle': 'A sample from the last 5 years.',
+    'home.experienceAll': 'See all experience →',
+    'home.featuredTitle': 'Featured project',
+    'home.featuredSubtitle': 'The most complete case in the portfolio.',
 
     'experience.title': 'Experience',
     'experience.subtitle':
       '5 years building .NET products on remote teams under Scrum.',
-    'experience.mode.remote': 'Remote',
-    'experience.mode.onsite': 'On-site',
+    'experience.description':
+      'Full professional experience timeline: roles, companies, stacks and key achievements.',
+    'experience.current': 'Present',
+    'experience.remote': 'Remote',
+    'experience.onsite': 'On-site',
 
     'projects.title': 'Projects',
     'projects.subtitle':
       '4 projects that show the real scope: .NET backend, mobile, Blazor, integrations.',
-    'projects.viewCase': 'View case',
-    'projects.featured': 'Featured',
-    'projects.repo': 'View repo',
-    'projects.backend': 'View backend',
+    'projects.description':
+      'Project portfolio: OdontoSoft, POS Multitenant, Omega Lecturista Digital, ExtraCore.',
+    'projects.viewDetail': 'View detail',
+    'projects.code': 'View code',
     'projects.live': 'View site',
-
-    'project.problem': 'The problem',
-    'project.architecture': 'Architecture',
-    'project.decisions': 'Technical decisions',
-    'project.back': '← Back to projects',
+    'projects.featured': 'Featured',
 
     'stack.title': 'Stack',
     'stack.subtitle': 'Technologies I use in production, organized by layer.',
-    'stack.level.expert': 'Expert',
-    'stack.level.advanced': 'Advanced',
-    'stack.level.familiar': 'Familiar',
+    'stack.description':
+      'Tech stack: backend, frontend, mobile, databases, cloud, security, APIs and tooling.',
 
     'contact.title': 'Contact',
     'contact.subtitle': 'Interested in working together or have a proposal? Reach out.',
-    'contact.name': 'Name',
-    'contact.email': 'Email',
-    'contact.message': 'Message',
-    'contact.placeholder.name': 'Your name',
-    'contact.placeholder.email': 'you@email.com',
-    'contact.placeholder.message': 'Tell me how I can help...',
-    'contact.submit': 'Send message',
-    'contact.section.email': 'Email',
-    'contact.section.linkedin': 'LinkedIn',
-    'contact.section.github': 'GitHub',
-    'contact.note':
+    'contact.description':
+      'Get in touch with Mauro Perelda for work proposals, collaboration or technical questions.',
+    'contact.cardTitle': "Let's talk",
+    'contact.cardDescription':
       'The fastest way to reach me is email — I reply within 1-2 business days.',
+    'contact.emailCta': 'Send email',
+    'contact.location': 'Villa María, Córdoba, Argentina',
+    'contact.social': 'Connect',
+    'contact.email': 'Email',
 
-    'footer.built': 'Built with Astro + Tailwind 4.',
+    'footer.built': 'Built with Vite + React + Tailwind 4.',
     'footer.rights': 'All rights reserved.',
 
-    'bc.projects': 'projects',
-    'bc.odontosoft': 'odontosoft',
-
-    'notfound.title': 'Page not found',
-    'notfound.text': 'The page you are looking for does not exist or was moved.',
-    'notfound.back': 'Back to home',
+    'notFound.title': 'Page not found',
+    'notFound.description': 'The page you are looking for does not exist or was moved.',
+    'notFound.cta': 'Back to home',
   },
 } as const satisfies Record<Lang, Record<string, string>>;
 

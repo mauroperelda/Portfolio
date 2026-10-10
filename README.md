@@ -1,58 +1,61 @@
 # Mauro Perelda — Portfolio
 
-Portfolio personal bilingüe (ES/EN). Construido con [Astro](https://astro.build/), [Tailwind CSS 4](https://tailwindcss.com/) y [React](https://react.dev/) (solo para las islands interactivas).
-
-🌐 **Producción:** https://portfolio-mp.vercel.app
+Bilingual personal portfolio (ES / EN) built with Vite + React 19 + TypeScript and pre-rendered to static HTML with [vite-react-ssg](https://github.com/antfu/vite-react-ssg).
 
 ## Stack
 
-- **Astro 7** — output estático + adapter Vercel
-- **React 19** — solo islands (theme toggle, lang switcher, mobile drawer)
-- **Tailwind CSS 4** — vía `@tailwindcss/vite`
-- **Content Collections** — `experience`, `projects`, `stack` por locale, validados con Zod
-- **i18n nativo de Astro** — prefijo de ruta (`/es/`, `/en/`), hreflang, sitemap
+- **Vite 8** as build tool
+- **React 19** + **react-router-dom 7** for client-side routing
+- **vite-react-ssg** for static site generation (pre-renders each route to HTML)
+- **Tailwind CSS 4** via `@tailwindcss/vite` (no `tailwind.config.js`, uses `@theme` directives)
+- **gray-matter** for parsing frontmatter from `.md` files
+- **zod** for runtime validation of content data
+- Bilingual via route prefix (`/es/`, `/en/`)
+- Dark / light theme with `localStorage` persistence (anti-FOUC inline bootstrap)
+- Deployed to Vercel
 
-## Estructura
+## Scripts
+
+```bash
+npm install        # install dependencies
+npm run dev        # start dev server at http://localhost:5173
+npm run typecheck  # tsc --noEmit
+npm run build      # SSG build → dist/
+npm run preview    # preview the built site
+```
+
+## Project structure
 
 ```
 src/
-├── content/           # experience · projects · stack (es/en) en Markdown
-├── i18n/              # languages, ui strings, helpers
-├── islands/           # React: ThemeToggle, LangSwitcher, MobileMenu
-├── layouts/           # BaseLayout, PageLayout
+├── App.tsx              # React Router routes
+├── main.tsx             # vite-react-ssg entry
+├── content.ts           # Markdown loader (import.meta.glob + gray-matter + zod)
+├── content.config.ts    # Zod schemas for collections
+├── content/             # 32 markdown files (4 exp × 2 + 4 proj × 2 + 8 stack × 2)
 ├── components/
-│   ├── layout/        # Sidebar, Topbar, Breadcrumb, Footer, SEO
-│   ├── sections/      # Hero, StatsRow, ExperienceTimeline, ProjectsGrid, StackGrid, ContactInfo
-│   └── ui/            # Tag, Card, Button, SectionHeading, Stat
-├── pages/
-│   ├── es/            # /es/, /es/experience, /es/projects, /es/projects/odontosoft, /es/stack, /es/contact
-│   ├── en/            # espejos en inglés
-│   ├── index.astro    # redirect → /es/
-│   └── 404.astro
-└── styles/            # tokens.css + global.css (Tailwind 4 + design tokens)
+│   ├── layout/          # PageShell, Sidebar, Topbar, Footer
+│   ├── sections/        # Hero, StatsRow, ExperienceTimeline, ProjectsGrid, StackGrid, ContactInfo
+│   └── ui/              # Tag, Card, Button, SectionHeading, Stat, Icons
+├── pages/               # Route components
+├── hooks/               # useTheme, useLang, useMeta
+├── i18n/                # languages, ui strings, utils
+├── config/              # site, seo
+├── lib/                 # format-date helpers
+└── styles/              # tokens.css, global.css
+public/                  # favicon, robots.txt
 ```
 
-## Desarrollo local
+## Routes
 
-```bash
-npm install
-npm run dev          # http://localhost:4321
-npm run build        # build de producción a ./dist
-npm run preview      # preview del build
-npm run check        # astro-check (TypeScript + Astro)
-```
+- `/` → redirects to `/es/`
+- `/:lang/` — Home
+- `/:lang/experience` — Experience timeline
+- `/:lang/projects` — Projects grid
+- `/:lang/projects/:slug` — Project detail (only `odontosoft` is featured)
+- `/:lang/stack` — Stack categories
+- `/:lang/contact` — Contact card
 
-## Añadir contenido
+## Environment
 
-- **Nuevo trabajo:** crear `src/content/experience/{es,en}/<slug>.md` con frontmatter Zod (ver `src/content/config.ts`).
-- **Nuevo proyecto:** crear `src/content/projects/{es,en}/<slug>.md`. Para que tenga página de detalle, marcar `featured: true` y crear `src/pages/{es,en}/projects/<slug>.astro`.
-- **Nueva categoría de stack:** crear `src/content/stack/{es,en}/<slug>.md` con `category` y `items[]`.
-- **Nuevo string UI:** editar `src/i18n/ui.ts` (agregar en `es` y `en` con la misma clave).
-
-## Despliegue
-
-Push a `main` → Vercel auto-deploy. Configurar dominio custom en Vercel → Settings → Domains.
-
-## Licencia
-
-MIT — ver [LICENSE](LICENSE).
+Optional: set `VITE_SITE_URL` in `.env` to override the default `https://portfolio-mp.vercel.app`.

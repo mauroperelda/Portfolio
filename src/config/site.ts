@@ -1,10 +1,4 @@
-/**
- * Global site configuration.
- * Single source of truth for URLs, author info, and social links.
- * Override `siteUrl` via `PUBLIC_SITE_URL` env var if you change the domain.
- */
-
-const envSiteUrl = import.meta.env.PUBLIC_SITE_URL;
+const envSiteUrl = import.meta.env.VITE_SITE_URL;
 
 export const SITE_URL: string =
   (typeof envSiteUrl === 'string' && envSiteUrl) || 'https://portfolio-mp.vercel.app';
@@ -32,3 +26,10 @@ export const SOCIAL = {
 } as const;
 
 export const DEFAULT_OG_IMAGE = '/og-image-es.png';
+
+export const SITE = {
+  name: SITE_NAME,
+  url: SITE_URL,
+  email: AUTHOR.email,
+  location: `${AUTHOR.location.city}, ${AUTHOR.location.province}, ${AUTHOR.location.country}`,
+} as const;

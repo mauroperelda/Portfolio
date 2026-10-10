@@ -1,18 +1,19 @@
 @import 'tailwindcss';
 @import './tokens.css';
 
-/* Expose tokens to Tailwind so utilities like bg-bg, text-fg, border-border work. */
-@theme {
+/*
+ * `inline` makes Tailwind generate var() references in the utility classes
+ * (e.g. `.bg-bg { background-color: var(--color-bg); }`) instead of inlining
+ * the literal value, so dark/light theme switching works at runtime.
+ */
+@theme inline {
   --color-bg: var(--color-bg);
   --color-bg-elev: var(--color-bg-elev);
   --color-bg-hover: var(--color-bg-hover);
-  --color-sidebar-bg: var(--color-sidebar-bg);
+  --color-bg-sidebar: var(--color-sidebar-bg);
   --color-fg: var(--color-fg);
   --color-fg-muted: var(--color-fg-muted);
   --color-fg-dim: var(--color-fg-dim);
-  --color-sidebar-fg: var(--color-sidebar-fg);
-  --color-sidebar-fg-active: var(--color-sidebar-fg-active);
-  --color-sidebar-section: var(--color-sidebar-section);
   --color-border: var(--color-border);
   --color-border-light: var(--color-border-light);
   --color-accent: var(--color-accent);
@@ -27,11 +28,8 @@
   --font-mono: 'Cascadia Code', 'Fira Code', Consolas, monospace;
 }
 
-/* Tell Tailwind to scan .astro and content folders for classes. */
-@source '../**/*.{astro,html,ts,tsx,md}';
-@source '../../src/**/*.{astro,html,ts,tsx,md}';
+@source '../**/*.{ts,tsx}';
 
-/* Base reset */
 *,
 *::before,
 *::after {
@@ -47,7 +45,9 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 a {
@@ -59,7 +59,6 @@ button {
   font-family: inherit;
 }
 
-/* Typography helpers (avoid Tailwind utilities in markdown body) */
 .prose-body {
   color: var(--color-fg-muted);
   line-height: 1.65;
@@ -73,7 +72,19 @@ button {
   margin: 28px 0 10px;
 }
 
+.prose-body h3 {
+  color: var(--color-fg);
+  font-size: 16px;
+  font-weight: 600;
+  margin: 22px 0 8px;
+}
+
 .prose-body ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.prose-body ol {
   padding-left: 20px;
   margin: 0;
 }
