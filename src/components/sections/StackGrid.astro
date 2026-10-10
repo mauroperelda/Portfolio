@@ -1,0 +1,44 @@
+---
+/**
+ * StackGrid — 8 categories with their items as tags.
+ */
+import { getCollection } from 'astro:content';
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/languages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories = (
+  await getCollection('stack', ({ data }) => data.locale === lang)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2">
+  {categories.map((c) => (
+    <div class="rounded-xl border border-border bg-bg-elev px-5 py-[18px]">
+      <div class="text-[12px] uppercase tracking-wider text-accent">
+        {c.data.category}
+      </div>
+      <div class="mt-3 flex flex-wrap gap-1.5">
+        {c.data.items.map((it) => (
+          <span
+            class="inline-flex items-center gap-1.5 rounded-md border border-accent-border bg-accent-soft px-2.5 py-1 text-[12px] font-medium text-accent"
+            title={`${t(`stack.level.${it.level ?? 'familiar'}`)}${it.years ? ` · ${it.years}+ yrs` : ''}`}
+          >
+            {it.name}
+            {it.level && (
+              <span class="text-[10px] opacity-75">
+                {it.level === 'expert' ? '●●●' : it.level === 'advanced' ? '●●○' : '●○○'}
+              </span>
+            )}
+          </span>
+        ))}
+      </div>
+    </div>
+  ))}
+</section>

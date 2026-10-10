@@ -1,0 +1,43 @@
+---
+/**
+ * PageLayout — sidebar + topbar + content area + footer.
+ * Used by all top-level pages (Home, Experience, Projects, Stack, Contact).
+ */
+import BaseLayout from './BaseLayout.astro';
+import Sidebar from '../components/layout/Sidebar.astro';
+import Topbar from '../components/layout/Topbar.astro';
+import Footer from '../components/layout/Footer.astro';
+import type { Lang } from '../i18n/languages';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Lang;
+  pathname?: string;
+  ogImage?: string;
+  type?: 'website' | 'article' | 'profile';
+}
+
+const { title, description, lang, pathname, ogImage, type } = Astro.props;
+const path = pathname ?? Astro.url.pathname;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  lang={lang}
+  pathname={path}
+  ogImage={ogImage}
+  type={type}
+>
+  <div class="flex min-h-screen">
+    <Sidebar lang={lang} pathname={path} />
+    <div class="flex min-w-0 flex-1 flex-col">
+      <Topbar lang={lang} pathname={path} />
+      <main class="max-w-[1100px] flex-1 px-5 py-8 sm:px-10">
+        <slot />
+      </main>
+      <Footer lang={lang} />
+    </div>
+  </div>
+</BaseLayout>

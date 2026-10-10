@@ -1,0 +1,24 @@
+---
+/**
+ * Footer — minimal copyright + build tagline.
+ */
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/languages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+---
+
+<footer class="border-t border-border bg-bg-elev px-5 py-8 text-[12.5px] text-fg-muted">
+  <div class="mx-auto flex max-w-[1100px] flex-col items-start justify-between gap-3 sm:flex-row sm:items-center">
+    <div>
+      © {year} Mauro Perelda. {t('footer.rights')}
+    </div>
+    <div class="text-fg-dim">{t('footer.built')}</div>
+  </div>
+</footer>

@@ -1,0 +1,21 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import SectionHeading from '../components/ui/SectionHeading.astro';
+import Button from '../components/ui/Button.astro';
+import { getLangFromUrl, useTranslations, localizedPath } from '../i18n/utils';
+import { DEFAULT_LANG } from '../i18n/languages';
+
+const lang = getLangFromUrl(Astro.url) ?? DEFAULT_LANG;
+const t = useTranslations(lang);
+---
+
+<PageLayout
+  title={t('notfound.title')}
+  description={t('notfound.text')}
+  lang={lang}
+>
+  <SectionHeading title={t('notfound.title')} subtitle={t('notfound.text')} />
+  <Button href={localizedPath(lang, '/')} variant="primary" size="lg">
+    {t('notfound.back')}
+  </Button>
+</PageLayout>

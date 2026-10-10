@@ -1,0 +1,60 @@
+---
+import PageLayout from '../../../layouts/PageLayout.astro';
+import SectionHeading from '../../../components/ui/SectionHeading.astro';
+import Tag from '../../../components/ui/Tag.astro';
+import Button from '../../../components/ui/Button.astro';
+import { getCollection, render } from 'astro:content';
+import { useTranslations } from '../../../i18n/utils';
+
+const t = useTranslations('en');
+
+const projects = await getCollection(
+  'projects',
+  ({ data }) => data.locale === 'en' && data.featured,
+);
+const project = projects.find((p) => p.id === 'en/odontosoft');
+
+if (!project) {
+  return Astro.redirect('/en/projects');
+}
+
+const { Content } = await render(project);
+---
+
+<PageLayout
+  title={project.data.title}
+  description={project.data.summary}
+  lang="en"
+  pathname="/en/projects/odontosoft"
+>
+  <div class="mb-[18px]">
+    <Button href="/en/projects" variant="ghost" size="sm">
+      {t('project.back')}
+    </Button>
+  </div>
+
+  <SectionHeading title={project.data.title} subtitle={project.data.summary} />
+
+  <div class="mb-7 flex flex-wrap gap-2">
+    {project.data.stack.map((s) => <Tag>{s}</Tag>)}
+  </div>
+
+  <article class="prose-body">
+    <Content />
+  </article>
+
+  {(project.data.repoUrl || project.data.repoUrlSecondary) && (
+    <div class="mt-7 flex flex-wrap gap-2.5">
+      {project.data.repoUrl && (
+        <Button href={project.data.repoUrl} variant="primary" size="md">
+          {t('projects.repo')} →
+        </Button>
+      )}
+      {project.data.repoUrlSecondary && (
+        <Button href={project.data.repoUrlSecondary} variant="ghost" size="md">
+          {t('projects.backend')} →
+        </Button>
+      )}
+    </div>
+  )}
+</PageLayout>

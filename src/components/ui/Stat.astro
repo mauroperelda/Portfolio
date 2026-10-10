@@ -1,0 +1,20 @@
+---
+/**
+ * Stat — single metric card (value + label + sub).
+ */
+interface Props {
+  label: string;
+  value: string;
+  sub?: string;
+}
+
+const { label, value, sub } = Astro.props;
+---
+
+<div class="rounded-xl border border-border bg-bg-elev px-5 py-[18px]">
+  <div class="text-[12px] uppercase tracking-wider text-fg-dim">
+    {label}
+  </div>
+  <div class="mt-1 text-[28px] font-bold text-fg">{value}</div>
+  {sub && <div class="mt-0.5 text-[12px] text-fg-muted">{sub}</div>}
+</div>

@@ -1,0 +1,29 @@
+---
+/**
+ * StatsRow — 3 quick metrics (years, companies, public projects).
+ */
+import Stat from '../ui/Stat.astro';
+import { useTranslations } from '../../i18n/utils';
+import type { Lang } from '../../i18n/languages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="grid grid-cols-1 gap-3.5 sm:grid-cols-3">
+  <Stat label={t('home.stat.years.label')} value="5+" sub={t('home.stat.years.sub')} />
+  <Stat
+    label={t('home.stat.companies.label')}
+    value="4"
+    sub={t('home.stat.companies.sub')}
+  />
+  <Stat
+    label={t('home.stat.projects.label')}
+    value="1"
+    sub={t('home.stat.projects.sub')}
+  />
+</section>

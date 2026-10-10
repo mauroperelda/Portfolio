@@ -1,0 +1,64 @@
+/*
+ * Design tokens — dark default, light override via [data-theme="light"] on <html>.
+ * Mirrors the approved mockup palette.
+ */
+
+:root,
+:root[data-theme='dark'] {
+  /* Surfaces */
+  --color-bg: #16171d;
+  --color-bg-elev: #1f2028;
+  --color-bg-hover: #2e303a;
+  --color-sidebar-bg: #313a46;
+  --color-sidebar-hover: rgba(255, 255, 255, 0.05);
+  --color-sidebar-active: rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --color-fg: #e5e7eb;
+  --color-fg-muted: #94a3b8;
+  --color-fg-dim: #64748b;
+  --color-sidebar-fg: #9ca3af;
+  --color-sidebar-fg-active: #ffffff;
+  --color-sidebar-section: #6b7280;
+
+  /* Borders */
+  --color-border: #2e303a;
+  --color-border-light: rgba(255, 255, 255, 0.08);
+
+  /* Accent */
+  --color-accent: #818cf8;
+  --color-accent-strong: #4f46e5;
+  --color-accent-soft: rgba(99, 102, 241, 0.1);
+  --color-accent-border: rgba(99, 102, 241, 0.25);
+
+  /* Code */
+  --color-code-bg: #0d0e13;
+  --color-code-fg: #e5e7eb;
+}
+
+:root[data-theme='light'] {
+  --color-bg: #f0f2f5;
+  --color-bg-elev: #ffffff;
+  --color-bg-hover: #f1f5f9;
+  --color-sidebar-bg: #1e293b;
+  --color-sidebar-hover: rgba(255, 255, 255, 0.05);
+  --color-sidebar-active: rgba(255, 255, 255, 0.08);
+
+  --color-fg: #1e293b;
+  --color-fg-muted: #475569;
+  --color-fg-dim: #94a3b8;
+  --color-sidebar-fg: #9ca3af;
+  --color-sidebar-fg-active: #ffffff;
+  --color-sidebar-section: #6b7280;
+
+  --color-border: #e2e8f0;
+  --color-border-light: rgba(255, 255, 255, 0.08);
+
+  --color-accent: #4f46e5;
+  --color-accent-strong: #4338ca;
+  --color-accent-soft: rgba(99, 102, 241, 0.1);
+  --color-accent-border: rgba(99, 102, 241, 0.25);
+
+  --color-code-bg: #0d0e13;
+  --color-code-fg: #e5e7eb;
+}

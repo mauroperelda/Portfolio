@@ -1,0 +1,57 @@
+---
+/**
+ * Hero — top of the Home page.
+ * Name + tagline + location + stack preview.
+ */
+import { useTranslations, localizedPath } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import Tag from '../ui/Tag.astro';
+import type { Lang } from '../../i18n/languages';
+import { AUTHOR } from '../../config/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const STACK_TAGS = ['.NET 10', 'C#', 'Blazor WASM', 'React 19', '.NET MAUI', 'Azure', 'SQL Server', 'Cosmos DB', 'EF Core'];
+---
+
+<section>
+  <h1 class="mb-1.5 text-[26px] font-bold text-fg">{AUTHOR.name}</h1>
+  <p class="mb-5 text-[14px] text-fg-muted">
+    Full Stack .NET Developer · Blazor · React · .NET MAUI · Azure
+  </p>
+
+  <div class="mb-6 flex items-center gap-2 text-[13px] text-fg-muted">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+      <circle cx="12" cy="10" r="3" />
+    </svg>
+    {t('home.location')}
+  </div>
+
+  <p class="mb-7 max-w-[720px] text-[17px] leading-relaxed text-fg">
+    {t('home.hero.text')}
+  </p>
+
+  <div class="mb-8 flex flex-wrap gap-3">
+    <Button href={localizedPath(lang, '/projects')} variant="primary" size="lg">
+      {t('home.cta.projects')} →
+    </Button>
+    <Button href={localizedPath(lang, '/contact')} variant="ghost" size="lg">
+      {t('home.cta.contact')}
+    </Button>
+  </div>
+
+  <div class="mb-9">
+    <div class="mb-2.5 text-[12px] uppercase tracking-wider text-fg-dim">
+      {t('home.label.mainStack')}
+    </div>
+    <div class="flex flex-wrap gap-2">
+      {STACK_TAGS.map((tag) => <Tag>{tag}</Tag>)}
+    </div>
+  </div>
+</section>

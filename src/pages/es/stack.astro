@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import StackGrid from '../../components/sections/StackGrid.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('es');
+---
+
+<PageLayout
+  title={t('stack.title')}
+  description="Tecnologías que uso en producción, organizadas por capa."
+  lang="es"
+>
+  <SectionHeading title={t('stack.title')} subtitle={t('stack.subtitle')} />
+  <StackGrid lang="es" />
+</PageLayout>

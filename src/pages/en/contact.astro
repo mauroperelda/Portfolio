@@ -1,0 +1,17 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import SectionHeading from '../../components/ui/SectionHeading.astro';
+import ContactInfo from '../../components/sections/ContactInfo.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const t = useTranslations('en');
+---
+
+<PageLayout
+  title={t('contact.title')}
+  description={t('contact.subtitle')}
+  lang="en"
+>
+  <SectionHeading title={t('contact.title')} subtitle={t('contact.subtitle')} />
+  <ContactInfo lang="en" />
+</PageLayout>

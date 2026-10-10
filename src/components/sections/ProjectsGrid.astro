@@ -1,0 +1,58 @@
+---
+/**
+ * ProjectsGrid — cards for all projects. Featured project gets a "View case" link.
+ */
+import { getCollection } from 'astro:content';
+import { useTranslations, localizedPath } from '../../i18n/utils';
+import Card from '../ui/Card.astro';
+import Tag from '../ui/Tag.astro';
+import type { Lang } from '../../i18n/languages';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const projects = (
+  await getCollection('projects', ({ data }) => data.locale === lang)
+).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section class="grid grid-cols-1 gap-[18px] sm:grid-cols-2 xl:grid-cols-2">
+  {projects.map((p) => {
+    const detailHref =
+      p.data.featured
+        ? localizedPath(lang, `/projects/${p.id.replace(/\s/g, '-').toLowerCase()}`)
+        : null;
+    return (
+      <Card href={detailHref ?? undefined} class="flex flex-col">
+        <div
+          class="flex aspect-video items-center justify-center text-[32px] font-bold text-white"
+          style={`background: ${p.data.coverGradient ?? 'linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%)'};`}
+        >
+          {p.data.title}
+        </div>
+        <div class="p-[18px]">
+          <h3 class="mb-1.5 text-[16px] font-semibold text-fg">{p.data.title}</h3>
+          <p class="mb-3 text-[13px] leading-[1.5] text-fg-muted">
+            {p.data.summary}
+          </p>
+          <div class="mb-3.5 flex flex-wrap gap-1.5">
+            {p.data.stack.map((s) => <Tag size="sm">{s}</Tag>)}
+          </div>
+          {detailHref ? (
+            <div class="text-[12px] font-medium text-accent">
+              {t('projects.viewCase')} →
+            </div>
+          ) : (
+            <div class="text-[12px] text-fg-dim">
+              {t('projects.subtitle')}
+            </div>
+          )}
+        </div>
+      </Card>
+    );
+  })}
+</section>

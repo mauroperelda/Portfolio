@@ -1,0 +1,23 @@
+---
+/**
+ * SectionHeading — h1 + optional subtitle.
+ * Consistent hero treatment for every top-level page.
+ */
+interface Props {
+  title: string;
+  subtitle?: string;
+  level?: 1 | 2;
+}
+
+const { title, subtitle, level = 1 } = Astro.props;
+const Tag = level === 1 ? 'h1' : 'h2';
+const titleClass =
+  level === 1
+    ? 'mb-1.5 text-[26px] font-bold text-fg'
+    : 'mb-2 text-[20px] font-semibold text-fg';
+---
+
+<header class="mb-7">
+  <Tag class={titleClass}>{title}</Tag>
+  {subtitle && <p class="text-[14px] text-fg-muted">{subtitle}</p>}
+</header>
